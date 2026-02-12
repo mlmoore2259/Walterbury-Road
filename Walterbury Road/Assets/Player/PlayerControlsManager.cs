@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerControlsManager : MonoBehaviour
@@ -11,37 +12,45 @@ public class PlayerControlsManager : MonoBehaviour
 
     // PLayer movement specific variables
     [SerializeField] Transform playerBody;
-    [SerializeField] Rigidbody playerRigidbody;
+    [SerializeField] CharacterController characterController;
+    //[SerializeField] Vector3 playerVelocity;
+    private float playerSpeed;
+    //private float gravityValue = -9.81f;
     [SerializeField] PlayerControls playerControls;
     [SerializeField] Vector3 movementInput;
+
+    // Player object variables
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         Cursor.lockState = CursorLockMode.Locked;
+        characterController = GetComponent<CharacterController>();
     }
 
     private void Awake()
     {
+        playerSpeed = 5f;
         playerControls = new PlayerControls();
-        
     }
 
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        lookInput = context.ReadValue<Vector2>() * mouseSensitivity * Time.deltaTime;
-    }
-
-    private void LateUpdate()
-    {
+        // Handle camera rotation based on look input
         if (lookInput.sqrMagnitude > 0)
         {
             playerBody.Rotate(Vector3.up * lookInput.x);
@@ -49,5 +58,28 @@ public class PlayerControlsManager : MonoBehaviour
             xAxisClamp = Mathf.Clamp(xAxisClamp, -90f, 90f);
             cameraTransform.localRotation = Quaternion.Euler(-xAxisClamp, 0f, 0f);
         }
+
+        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+        move = playerBody.transform.TransformDirection(move);
+        characterController.Move(move * playerSpeed * Time.deltaTime);
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        lookInput = context.ReadValue<Vector2>() * mouseSensitivity * Time.deltaTime;
+        if (context.canceled)
+        {
+            lookInput = Vector2.zero;
+        }
+    }
+
+    private void LateUpdate()
+    {
+
     }
 }
