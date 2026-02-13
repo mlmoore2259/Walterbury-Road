@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerControlsManager : MonoBehaviour
 {
-    // Look specific varibales
+    // Look specific variables
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] Transform cameraTransform;
     private Vector2 lookInput;
@@ -13,14 +13,13 @@ public class PlayerControlsManager : MonoBehaviour
     // PLayer movement specific variables
     [SerializeField] Transform playerBody;
     [SerializeField] CharacterController characterController;
-    //[SerializeField] Vector3 playerVelocity;
     private float playerSpeed;
-    //private float gravityValue = -9.81f;
+    private float gravityValue = -9.81f;
     [SerializeField] PlayerControls playerControls;
     [SerializeField] Vector3 movementInput;
 
     // Player object variables
-    
+    [SerializeField] GameObject flashlightLight;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,7 +58,8 @@ public class PlayerControlsManager : MonoBehaviour
             cameraTransform.localRotation = Quaternion.Euler(-xAxisClamp, 0f, 0f);
         }
 
-        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+        // Apply player movement
+        Vector3 move = new Vector3(movementInput.x, gravityValue, movementInput.y);
         move = playerBody.transform.TransformDirection(move);
         characterController.Move(move * playerSpeed * Time.deltaTime);
     }
@@ -75,6 +75,14 @@ public class PlayerControlsManager : MonoBehaviour
         if (context.canceled)
         {
             lookInput = Vector2.zero;
+        }
+    }
+
+    public void OnFlashlightToggle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            flashlightLight.SetActive(!flashlightLight.activeSelf);
         }
     }
 
