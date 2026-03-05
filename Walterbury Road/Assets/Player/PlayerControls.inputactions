@@ -3,7 +3,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Keyboard",
+            "name": "WorldControls",
             "id": "07df19cb-d7fc-40ab-b8ba-55461594d521",
             "actions": [
                 {
@@ -46,24 +46,6 @@
                     "name": "Open/Close Notebook",
                     "type": "Button",
                     "id": "f0ae58db-4beb-4a77-be5c-8cb3dacedaff",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "NextPage",
-                    "type": "Button",
-                    "id": "c1512ae7-fa1a-4f22-8a39-8c46c73889bf",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "PrevPage",
-                    "type": "Button",
-                    "id": "10a9876b-f16a-4734-8660-3cd5d87d1a14",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -169,10 +151,45 @@
                     "action": "Open/Close Notebook",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "NotebookControls",
+            "id": "908e39a3-e8b2-45e8-b80e-44287c37bc3b",
+            "actions": [
+                {
+                    "name": "NextPage",
+                    "type": "Button",
+                    "id": "f08b2d9f-65f5-4a4d-8a0c-604ace0d69ce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "PrevPage",
+                    "type": "Button",
+                    "id": "38d8c739-c0e2-4001-90b3-9ccb0ac7bd85",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleNotebook",
+                    "type": "Button",
+                    "id": "21a14b30-feee-4814-a91e-ebadae909bc6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "ffd222e7-3096-4458-8916-5aaf70a15e02",
+                    "id": "2b1ba4cb-5478-4cd8-b12a-d3f8c933f3d8",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -183,12 +200,23 @@
                 },
                 {
                     "name": "",
-                    "id": "442f1d74-32d2-4b68-8c4b-44ded7820885",
+                    "id": "72ce2c86-0df1-4ce8-89a2-c349a6be38d6",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PrevPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e72967b-1d9c-4e39-9e89-b21ee368a88e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleNotebook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

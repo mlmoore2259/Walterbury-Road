@@ -178,7 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   notebookPages: []
+  numPages: 5
   currPage: 0
+  prevPage: 0
+  newPage: 0
 --- !u!1 &91462881
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,12 +332,68 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 39667361}
     - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 1199825581}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: notebookManager
       value: 
       objectReference: {fileID: 39667363}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: movementAction.m_Name
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Actions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Bindings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Actions.Array.data[0].m_Id
+      value: 687a0af4-ee25-45c0-8990-a8765356e7a8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Bindings.Array.data[0].m_Id
+      value: 3edfd6e2-dfac-4502-9928-22c1491ca43a
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Actions.Array.data[0].m_Name
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Actions.Array.data[0].m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Bindings.Array.data[0].m_Action
+      value: New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 6a4edad7-226f-4089-851f-04a1d60c2497
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: worldMovementMap.m_Actions.Array.data[0].m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678634716167219274, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: movementAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Movement
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: WorldControls
+      objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
@@ -342,11 +401,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: c1512ae7-fa1a-4f22-8a39-8c46c73889bf
+      value: f08b2d9f-65f5-4a4d-8a0c-604ace0d69ce
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: 10a9876b-f16a-4734-8660-3cd5d87d1a14
+      value: 38d8c739-c0e2-4001-90b3-9ccb0ac7bd85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 21a14b30-feee-4814-a91e-ebadae909bc6
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
@@ -354,11 +417,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: 'Keyboard/NextPage[/Keyboard/d]'
+      value: NotebookControls/New action
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionName
-      value: 'Keyboard/PrevPage[/Keyboard/a]'
+      value: 'NotebookControls/PrevPage[/Keyboard/a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: 'NotebookControls/ToggleNotebook[/Keyboard/q]'
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
@@ -373,16 +440,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -394,6 +469,10 @@ PrefabInstance:
       objectReference: {fileID: 1184520330}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1184520330}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1184520330}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
@@ -409,16 +488,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnNotebookToggle
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextPage
+      value: OnNextPage
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PrevPage
+      value: OnPrevPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnNotebookToggle
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -433,6 +520,10 @@ PrefabInstance:
       value: PlayerControlsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerControlsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -442,6 +533,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7764869006043856021, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
@@ -663,9 +758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d8581f3a29b049a81c5f90967fe45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvidenceItem
-  evidenceName: 
+  ID: 0
   found: 0
   playerGameInfo: {fileID: 1184520328}
+  notebookManager: {fileID: 0}
 --- !u!54 &243784146
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1066,9 +1162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d8581f3a29b049a81c5f90967fe45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvidenceItem
-  evidenceName: 
+  ID: 0
   found: 0
   playerGameInfo: {fileID: 1184520328}
+  notebookManager: {fileID: 39667363}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1638,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e667dcb41321046b31d8842f648fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControlsManager
+--- !u!114 &1199825581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2652930661962580345, guid: 5be6301ffec1749438d7a1496fc02a40, type: 3}
+  m_PrefabInstance: {fileID: 162610226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
 --- !u!1 &1261575970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,9 +1971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d8581f3a29b049a81c5f90967fe45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvidenceItem
-  evidenceName: 
+  ID: 0
   found: 0
   playerGameInfo: {fileID: 1184520328}
+  notebookManager: {fileID: 0}
 --- !u!54 &1662336923
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1998,6 +2107,7 @@ GameObject:
   - component: {fileID: 1693923423}
   - component: {fileID: 1693923422}
   - component: {fileID: 1693923421}
+  - component: {fileID: 1693923425}
   m_Layer: 5
   m_Name: PlayerUICanvas
   m_TagString: Untagged
@@ -2088,6 +2198,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1693923425
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693923420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1731864821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,9 +2770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d8581f3a29b049a81c5f90967fe45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvidenceItem
-  evidenceName: 
+  ID: 0
   found: 0
   playerGameInfo: {fileID: 1184520328}
+  notebookManager: {fileID: 0}
 --- !u!54 &2075868840
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class NotebookManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] notebookPages;
-    private int numPages = 5;
+    [SerializeField] public GameObject[] notebookPages;
+    public int numPages = 5;
     public int currPage = 0;
+    public int prevPage;
+    public bool newPage = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +17,10 @@ public class NotebookManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (newPage)
+        {
+            SetPage();
+        }
     }
 
     private void InitializeNotebook()
@@ -24,6 +29,7 @@ public class NotebookManager : MonoBehaviour
         for (int i = 0; i < numPages; i++)
         {
             notebookPages[i] = transform.GetChild(i).gameObject;
+            // Set only the first page as active to start
             if (i != 0)
             {
                 notebookPages[i].SetActive(false);
@@ -31,9 +37,10 @@ public class NotebookManager : MonoBehaviour
         }
     }
 
-    public void SetPage(int prevPage)
+    public void SetPage()
     {
-        notebookPages[prevPage].SetActive(false);
         notebookPages[currPage].SetActive(true);
+        notebookPages[prevPage].SetActive(false);
+        newPage = false;
     }
 }

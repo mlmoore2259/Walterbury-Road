@@ -15,7 +15,6 @@ public class PlayerControlsManager : MonoBehaviour
     [SerializeField] CharacterController characterController;
     private float playerSpeed;
     private float gravityValue = -1.81f;
-    [SerializeField] PlayerControls playerControls;
     [SerializeField] Vector3 movementInput;
 
     // Player object variables
@@ -27,6 +26,11 @@ public class PlayerControlsManager : MonoBehaviour
     [SerializeField] GameObject notebook;
     [SerializeField] NotebookManager notebookManager;
 
+    // Control map switching variables
+    [SerializeField] PlayerInput playerInput;
+    [SerializeField] InputActionMap notebookActionMap;
+    [SerializeField] InputActionMap worldMovementMap;
+    [SerializeField] PlayerControls playerControls;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +45,9 @@ public class PlayerControlsManager : MonoBehaviour
     {
         playerSpeed = 5f;
         playerControls = new PlayerControls();
+        worldMovementMap = playerControls.WorldControls;
+        notebookActionMap = playerControls.NotebookControls;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void OnEnable()
@@ -91,7 +98,6 @@ public class PlayerControlsManager : MonoBehaviour
                 // Evidence case
                 if (hit.collider.gameObject.CompareTag("Evidence"))
                 {
-                    Debug.Log("Interacted with: " + hit.collider.gameObject.name);
                     hit.collider.gameObject.GetComponent<EvidenceItem>().found = true;
                 }
 
@@ -129,35 +135,55 @@ public class PlayerControlsManager : MonoBehaviour
         if (context.performed)
         {
             notebook.SetActive(!notebook.activeSelf);
+            ResetNotebook();
             // If notebook is active pause the game
-            //if (notebook.activeSelf)
-            //{
-            //    Time.timeScale = 0f;
-            //    // Disable player controls
+            if (notebook.activeSelf)
+            {
+                Time.timeScale = 0f;
+                // Disable player controls
+                playerInput.SwitchCurrentActionMap("NotebookControls");
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                // Enable player controls
+                playerInput.SwitchCurrentActionMap("WorldControls");
                 
-            //}
-            //else
-            //{
-            //    Time.timeScale = 1f;
-            //}
+            }
         }
     }
 
-    public void NextPage()
+    public void OnNextPage(InputAction.CallbackContext context)
     {
-        if (notebookManager.currPage < 4)
+        if (context.performed)
         {
-            notebookManager.currPage++;
-            notebookManager.SetPage(notebookManager.currPage - 1);
+            if (notebookManager.currPage < notebookManager.numPages - 1)
+            {
+                notebookManager.prevPage = notebookManager.currPage;
+                notebookManager.currPage++;
+                notebookManager.newPage = true;
+            }
         }
     }
 
-    public void PrevPage()
+    public void OnPrevPage(InputAction.CallbackContext context)
     {
-        if (notebookManager.currPage > 0)
+        if (context.performed)
         {
-            notebookManager.currPage--;
-            notebookManager.SetPage(notebookManager.currPage + 1);
+            if (notebookManager.currPage > 0)
+            {
+                notebookManager.prevPage = notebookManager.currPage;
+                notebookManager.currPage--;
+                notebookManager.newPage = true;
+            }
         }
+    }
+
+    public void ResetNotebook()
+    {
+        notebookManager.notebookPages[notebookManager.currPage].SetActive(false);
+        notebookManager.currPage = 0;
+        notebookManager.prevPage = 0;
+        notebookManager.notebookPages[0].SetActive(true);
     }
 }

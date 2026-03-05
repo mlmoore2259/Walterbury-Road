@@ -89,7 +89,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Keyboard"",
+            ""name"": ""WorldControls"",
             ""id"": ""07df19cb-d7fc-40ab-b8ba-55461594d521"",
             ""actions"": [
                 {
@@ -132,24 +132,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Open/Close Notebook"",
                     ""type"": ""Button"",
                     ""id"": ""f0ae58db-4beb-4a77-be5c-8cb3dacedaff"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""NextPage"",
-                    ""type"": ""Button"",
-                    ""id"": ""c1512ae7-fa1a-4f22-8a39-8c46c73889bf"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PrevPage"",
-                    ""type"": ""Button"",
-                    ""id"": ""10a9876b-f16a-4734-8660-3cd5d87d1a14"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -255,10 +237,45 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Open/Close Notebook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""NotebookControls"",
+            ""id"": ""908e39a3-e8b2-45e8-b80e-44287c37bc3b"",
+            ""actions"": [
+                {
+                    ""name"": ""NextPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""f08b2d9f-65f5-4a4d-8a0c-604ace0d69ce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""PrevPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""38d8c739-c0e2-4001-90b3-9ccb0ac7bd85"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleNotebook"",
+                    ""type"": ""Button"",
+                    ""id"": ""21a14b30-feee-4814-a91e-ebadae909bc6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""ffd222e7-3096-4458-8916-5aaf70a15e02"",
+                    ""id"": ""2b1ba4cb-5478-4cd8-b12a-d3f8c933f3d8"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -269,12 +286,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""442f1d74-32d2-4b68-8c4b-44ded7820885"",
+                    ""id"": ""72ce2c86-0df1-4ce8-89a2-c349a6be38d6"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e72967b-1d9c-4e39-9e89-b21ee368a88e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleNotebook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -283,20 +311,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Keyboard
-        m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
-        m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
-        m_Keyboard_Move = m_Keyboard.FindAction("Move", throwIfNotFound: true);
-        m_Keyboard_Flashlight = m_Keyboard.FindAction("Flashlight", throwIfNotFound: true);
-        m_Keyboard_Interact = m_Keyboard.FindAction("Interact", throwIfNotFound: true);
-        m_Keyboard_OpenCloseNotebook = m_Keyboard.FindAction("Open/Close Notebook", throwIfNotFound: true);
-        m_Keyboard_NextPage = m_Keyboard.FindAction("NextPage", throwIfNotFound: true);
-        m_Keyboard_PrevPage = m_Keyboard.FindAction("PrevPage", throwIfNotFound: true);
+        // WorldControls
+        m_WorldControls = asset.FindActionMap("WorldControls", throwIfNotFound: true);
+        m_WorldControls_Look = m_WorldControls.FindAction("Look", throwIfNotFound: true);
+        m_WorldControls_Move = m_WorldControls.FindAction("Move", throwIfNotFound: true);
+        m_WorldControls_Flashlight = m_WorldControls.FindAction("Flashlight", throwIfNotFound: true);
+        m_WorldControls_Interact = m_WorldControls.FindAction("Interact", throwIfNotFound: true);
+        m_WorldControls_OpenCloseNotebook = m_WorldControls.FindAction("Open/Close Notebook", throwIfNotFound: true);
+        // NotebookControls
+        m_NotebookControls = asset.FindActionMap("NotebookControls", throwIfNotFound: true);
+        m_NotebookControls_NextPage = m_NotebookControls.FindAction("NextPage", throwIfNotFound: true);
+        m_NotebookControls_PrevPage = m_NotebookControls.FindAction("PrevPage", throwIfNotFound: true);
+        m_NotebookControls_ToggleNotebook = m_NotebookControls.FindAction("ToggleNotebook", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
-        UnityEngine.Debug.Assert(!m_Keyboard.enabled, "This will cause a leak and performance issues, PlayerControls.Keyboard.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_WorldControls.enabled, "This will cause a leak and performance issues, PlayerControls.WorldControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_NotebookControls.enabled, "This will cause a leak and performance issues, PlayerControls.NotebookControls.Disable() has not been called.");
     }
 
     /// <summary>
@@ -369,59 +401,49 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Keyboard
-    private readonly InputActionMap m_Keyboard;
-    private List<IKeyboardActions> m_KeyboardActionsCallbackInterfaces = new List<IKeyboardActions>();
-    private readonly InputAction m_Keyboard_Look;
-    private readonly InputAction m_Keyboard_Move;
-    private readonly InputAction m_Keyboard_Flashlight;
-    private readonly InputAction m_Keyboard_Interact;
-    private readonly InputAction m_Keyboard_OpenCloseNotebook;
-    private readonly InputAction m_Keyboard_NextPage;
-    private readonly InputAction m_Keyboard_PrevPage;
+    // WorldControls
+    private readonly InputActionMap m_WorldControls;
+    private List<IWorldControlsActions> m_WorldControlsActionsCallbackInterfaces = new List<IWorldControlsActions>();
+    private readonly InputAction m_WorldControls_Look;
+    private readonly InputAction m_WorldControls_Move;
+    private readonly InputAction m_WorldControls_Flashlight;
+    private readonly InputAction m_WorldControls_Interact;
+    private readonly InputAction m_WorldControls_OpenCloseNotebook;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Keyboard".
+    /// Provides access to input actions defined in input action map "WorldControls".
     /// </summary>
-    public struct KeyboardActions
+    public struct WorldControlsActions
     {
         private @PlayerControls m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public KeyboardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public WorldControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Keyboard/Look".
+        /// Provides access to the underlying input action "WorldControls/Look".
         /// </summary>
-        public InputAction @Look => m_Wrapper.m_Keyboard_Look;
+        public InputAction @Look => m_Wrapper.m_WorldControls_Look;
         /// <summary>
-        /// Provides access to the underlying input action "Keyboard/Move".
+        /// Provides access to the underlying input action "WorldControls/Move".
         /// </summary>
-        public InputAction @Move => m_Wrapper.m_Keyboard_Move;
+        public InputAction @Move => m_Wrapper.m_WorldControls_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Keyboard/Flashlight".
+        /// Provides access to the underlying input action "WorldControls/Flashlight".
         /// </summary>
-        public InputAction @Flashlight => m_Wrapper.m_Keyboard_Flashlight;
+        public InputAction @Flashlight => m_Wrapper.m_WorldControls_Flashlight;
         /// <summary>
-        /// Provides access to the underlying input action "Keyboard/Interact".
+        /// Provides access to the underlying input action "WorldControls/Interact".
         /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Keyboard_Interact;
+        public InputAction @Interact => m_Wrapper.m_WorldControls_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Keyboard/OpenCloseNotebook".
+        /// Provides access to the underlying input action "WorldControls/OpenCloseNotebook".
         /// </summary>
-        public InputAction @OpenCloseNotebook => m_Wrapper.m_Keyboard_OpenCloseNotebook;
-        /// <summary>
-        /// Provides access to the underlying input action "Keyboard/NextPage".
-        /// </summary>
-        public InputAction @NextPage => m_Wrapper.m_Keyboard_NextPage;
-        /// <summary>
-        /// Provides access to the underlying input action "Keyboard/PrevPage".
-        /// </summary>
-        public InputAction @PrevPage => m_Wrapper.m_Keyboard_PrevPage;
+        public InputAction @OpenCloseNotebook => m_Wrapper.m_WorldControls_OpenCloseNotebook;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
+        public InputActionMap Get() { return m_Wrapper.m_WorldControls; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -429,9 +451,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="KeyboardActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="WorldControlsActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(KeyboardActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(WorldControlsActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -439,11 +461,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="KeyboardActions" />
-        public void AddCallbacks(IKeyboardActions instance)
+        /// <seealso cref="WorldControlsActions" />
+        public void AddCallbacks(IWorldControlsActions instance)
         {
-            if (instance == null || m_Wrapper.m_KeyboardActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_KeyboardActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_WorldControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WorldControlsActionsCallbackInterfaces.Add(instance);
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
@@ -459,12 +481,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OpenCloseNotebook.started += instance.OnOpenCloseNotebook;
             @OpenCloseNotebook.performed += instance.OnOpenCloseNotebook;
             @OpenCloseNotebook.canceled += instance.OnOpenCloseNotebook;
-            @NextPage.started += instance.OnNextPage;
-            @NextPage.performed += instance.OnNextPage;
-            @NextPage.canceled += instance.OnNextPage;
-            @PrevPage.started += instance.OnPrevPage;
-            @PrevPage.performed += instance.OnPrevPage;
-            @PrevPage.canceled += instance.OnPrevPage;
         }
 
         /// <summary>
@@ -473,8 +489,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="KeyboardActions" />
-        private void UnregisterCallbacks(IKeyboardActions instance)
+        /// <seealso cref="WorldControlsActions" />
+        private void UnregisterCallbacks(IWorldControlsActions instance)
         {
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
@@ -491,21 +507,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @OpenCloseNotebook.started -= instance.OnOpenCloseNotebook;
             @OpenCloseNotebook.performed -= instance.OnOpenCloseNotebook;
             @OpenCloseNotebook.canceled -= instance.OnOpenCloseNotebook;
-            @NextPage.started -= instance.OnNextPage;
-            @NextPage.performed -= instance.OnNextPage;
-            @NextPage.canceled -= instance.OnNextPage;
-            @PrevPage.started -= instance.OnPrevPage;
-            @PrevPage.performed -= instance.OnPrevPage;
-            @PrevPage.canceled -= instance.OnPrevPage;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="KeyboardActions.UnregisterCallbacks(IKeyboardActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="WorldControlsActions.UnregisterCallbacks(IWorldControlsActions)" />.
         /// </summary>
-        /// <seealso cref="KeyboardActions.UnregisterCallbacks(IKeyboardActions)" />
-        public void RemoveCallbacks(IKeyboardActions instance)
+        /// <seealso cref="WorldControlsActions.UnregisterCallbacks(IWorldControlsActions)" />
+        public void RemoveCallbacks(IWorldControlsActions instance)
         {
-            if (m_Wrapper.m_KeyboardActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_WorldControlsActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -515,27 +525,145 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="KeyboardActions.AddCallbacks(IKeyboardActions)" />
-        /// <seealso cref="KeyboardActions.RemoveCallbacks(IKeyboardActions)" />
-        /// <seealso cref="KeyboardActions.UnregisterCallbacks(IKeyboardActions)" />
-        public void SetCallbacks(IKeyboardActions instance)
+        /// <seealso cref="WorldControlsActions.AddCallbacks(IWorldControlsActions)" />
+        /// <seealso cref="WorldControlsActions.RemoveCallbacks(IWorldControlsActions)" />
+        /// <seealso cref="WorldControlsActions.UnregisterCallbacks(IWorldControlsActions)" />
+        public void SetCallbacks(IWorldControlsActions instance)
         {
-            foreach (var item in m_Wrapper.m_KeyboardActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_WorldControlsActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_KeyboardActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_WorldControlsActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="KeyboardActions" /> instance referencing this action map.
+    /// Provides a new <see cref="WorldControlsActions" /> instance referencing this action map.
     /// </summary>
-    public KeyboardActions @Keyboard => new KeyboardActions(this);
+    public WorldControlsActions @WorldControls => new WorldControlsActions(this);
+
+    // NotebookControls
+    private readonly InputActionMap m_NotebookControls;
+    private List<INotebookControlsActions> m_NotebookControlsActionsCallbackInterfaces = new List<INotebookControlsActions>();
+    private readonly InputAction m_NotebookControls_NextPage;
+    private readonly InputAction m_NotebookControls_PrevPage;
+    private readonly InputAction m_NotebookControls_ToggleNotebook;
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Keyboard" which allows adding and removing callbacks.
+    /// Provides access to input actions defined in input action map "NotebookControls".
     /// </summary>
-    /// <seealso cref="KeyboardActions.AddCallbacks(IKeyboardActions)" />
-    /// <seealso cref="KeyboardActions.RemoveCallbacks(IKeyboardActions)" />
-    public interface IKeyboardActions
+    public struct NotebookControlsActions
+    {
+        private @PlayerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public NotebookControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "NotebookControls/NextPage".
+        /// </summary>
+        public InputAction @NextPage => m_Wrapper.m_NotebookControls_NextPage;
+        /// <summary>
+        /// Provides access to the underlying input action "NotebookControls/PrevPage".
+        /// </summary>
+        public InputAction @PrevPage => m_Wrapper.m_NotebookControls_PrevPage;
+        /// <summary>
+        /// Provides access to the underlying input action "NotebookControls/ToggleNotebook".
+        /// </summary>
+        public InputAction @ToggleNotebook => m_Wrapper.m_NotebookControls_ToggleNotebook;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_NotebookControls; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="NotebookControlsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(NotebookControlsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="NotebookControlsActions" />
+        public void AddCallbacks(INotebookControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NotebookControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NotebookControlsActionsCallbackInterfaces.Add(instance);
+            @NextPage.started += instance.OnNextPage;
+            @NextPage.performed += instance.OnNextPage;
+            @NextPage.canceled += instance.OnNextPage;
+            @PrevPage.started += instance.OnPrevPage;
+            @PrevPage.performed += instance.OnPrevPage;
+            @PrevPage.canceled += instance.OnPrevPage;
+            @ToggleNotebook.started += instance.OnToggleNotebook;
+            @ToggleNotebook.performed += instance.OnToggleNotebook;
+            @ToggleNotebook.canceled += instance.OnToggleNotebook;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="NotebookControlsActions" />
+        private void UnregisterCallbacks(INotebookControlsActions instance)
+        {
+            @NextPage.started -= instance.OnNextPage;
+            @NextPage.performed -= instance.OnNextPage;
+            @NextPage.canceled -= instance.OnNextPage;
+            @PrevPage.started -= instance.OnPrevPage;
+            @PrevPage.performed -= instance.OnPrevPage;
+            @PrevPage.canceled -= instance.OnPrevPage;
+            @ToggleNotebook.started -= instance.OnToggleNotebook;
+            @ToggleNotebook.performed -= instance.OnToggleNotebook;
+            @ToggleNotebook.canceled -= instance.OnToggleNotebook;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="NotebookControlsActions.UnregisterCallbacks(INotebookControlsActions)" />.
+        /// </summary>
+        /// <seealso cref="NotebookControlsActions.UnregisterCallbacks(INotebookControlsActions)" />
+        public void RemoveCallbacks(INotebookControlsActions instance)
+        {
+            if (m_Wrapper.m_NotebookControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="NotebookControlsActions.AddCallbacks(INotebookControlsActions)" />
+        /// <seealso cref="NotebookControlsActions.RemoveCallbacks(INotebookControlsActions)" />
+        /// <seealso cref="NotebookControlsActions.UnregisterCallbacks(INotebookControlsActions)" />
+        public void SetCallbacks(INotebookControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NotebookControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NotebookControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="NotebookControlsActions" /> instance referencing this action map.
+    /// </summary>
+    public NotebookControlsActions @NotebookControls => new NotebookControlsActions(this);
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "WorldControls" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="WorldControlsActions.AddCallbacks(IWorldControlsActions)" />
+    /// <seealso cref="WorldControlsActions.RemoveCallbacks(IWorldControlsActions)" />
+    public interface IWorldControlsActions
     {
         /// <summary>
         /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -572,6 +700,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenCloseNotebook(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "NotebookControls" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="NotebookControlsActions.AddCallbacks(INotebookControlsActions)" />
+    /// <seealso cref="NotebookControlsActions.RemoveCallbacks(INotebookControlsActions)" />
+    public interface INotebookControlsActions
+    {
         /// <summary>
         /// Method invoked when associated input action "NextPage" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -586,5 +722,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPrevPage(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleNotebook" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleNotebook(InputAction.CallbackContext context);
     }
 }

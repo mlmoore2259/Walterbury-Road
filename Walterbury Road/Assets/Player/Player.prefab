@@ -688,9 +688,23 @@ MonoBehaviour:
   playerBody: {fileID: 9034612743197114447}
   characterController: {fileID: 0}
   movementInput: {x: 0, y: 0, z: 0}
+  worldMovementMap:
+    m_Name: World Movement Map
+    m_Id: 1354a1e7-ddfe-4d37-b42c-7ef34ee51e3b
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
   flashlightLight: {fileID: 3897499598465229887}
   interactRange: 2.5
   playerGameInfo: {fileID: 0}
+  notebook: {fileID: 0}
+  notebookManager: {fileID: 0}
+  notebookActionMap:
+    m_Name: Notebook
+    m_Id: ede25eb5-39bc-4bfc-9173-c3da7b3fc6e4
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &2652930661962580345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,9 +794,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1452cb14-caea-45f4-8daa-06ee5aaa468d
     m_ActionName: 'Keyboard/Interact[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f0ae58db-4beb-4a77-be5c-8cb3dacedaff
+    m_ActionName: 'WorldControls/Open/Close Notebook[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1512ae7-fa1a-4f22-8a39-8c46c73889bf
+    m_ActionName: 'WorldControls/NextPage[/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 10a9876b-f16a-4734-8660-3cd5d87d1a14
+    m_ActionName: 'WorldControls/PrevPage[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f08b2d9f-65f5-4a4d-8a0c-604ace0d69ce
+    m_ActionName: NotebookControls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Keyboard
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 3617042893536349946}
 --- !u!114 &7063618802574133424
