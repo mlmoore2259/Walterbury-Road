@@ -36,6 +36,6 @@ public class EvidenceItem : MonoBehaviour
 
     private void UpdateNotebook()
     {
-        notebookManager.notebookPages[ID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemsData.items[ID].profileEntry;
+        notebookManager.notebookPages[ID].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemsData.items[ID - 1].profileEntry;
     }
 }
