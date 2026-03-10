@@ -10,12 +10,14 @@ public class PlayerControlsManager : MonoBehaviour
     private Vector2 lookInput;
     private float xAxisClamp = 0f;
 
-    // PLayer movement specific variables
+    // Player movement specific variables
     [SerializeField] Transform playerBody;
     [SerializeField] CharacterController characterController;
     private float playerSpeed;
     private float gravityValue = -1.81f;
     [SerializeField] Vector3 movementInput;
+    private float walkSpeed = 5f;
+    private float sprintSpeed = 10f;
 
     // Player object variables
     [SerializeField] GameObject flashlightLight;
@@ -43,7 +45,7 @@ public class PlayerControlsManager : MonoBehaviour
 
     private void Awake()
     {
-        playerSpeed = 5f;
+        playerSpeed = walkSpeed;
         playerControls = new PlayerControls();
         worldMovementMap = playerControls.WorldControls;
         notebookActionMap = playerControls.NotebookControls;
@@ -122,7 +124,7 @@ public class PlayerControlsManager : MonoBehaviour
         }
     }
 
-    public void MovePlayer()
+    public void MovePlayer()    
     {
         // Apply player movement
         Vector3 move = new Vector3(movementInput.x, gravityValue, movementInput.y);
@@ -185,5 +187,18 @@ public class PlayerControlsManager : MonoBehaviour
         notebookManager.currPage = 0;
         notebookManager.prevPage = 0;
         notebookManager.notebookPages[0].SetActive(true);
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            playerSpeed = sprintSpeed;
+        }
+
+        if (context.canceled)
+        {
+            playerSpeed = walkSpeed;
+        }
     }
 }
